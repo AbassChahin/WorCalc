@@ -1,0 +1,127 @@
+/* CSS Reset */
+body, header, nav, main, footer, h1, div, img, ul, figure, figcaption, section, article, aside, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Style rules for body and images */
+body {
+  background-color: #FFC1C1;
+}
+
+img, video { 
+    max-width: 100%;
+    display: block;
+}
+
+/* Style rule for box sizing applies to all elements */
+* {
+  box-sizing: border-box;
+}
+
+header {
+    top: 0;
+}
+
+header img {
+    margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  color: gray;
+}
+
+footer {
+  text-align: center;
+  color: gray;
+}
+
+.mobile-nav {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#menu-links {
+  text-align: center;
+}
+
+.mobile-nav a {
+  color: black;
+  font-family: 'Francois One', sans-serif;
+  text-align: center;
+  font-size: 1.25em;
+  text-decoration: none;
+  padding: 2%;
+  margin: 5px;
+  border: solid thin black;
+  border-radius: 5px;
+}
+
+.divcard {
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.divcard h2 {
+  color: gray;
+}
+
+/* Sign-In Page */
+.mainform {
+  align-items: center;
+  justify-content: center;
+}
+
+#username, #password, #submitbutton {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  color: grey;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+#submitbutton {
+  color: white;
+}
+
+/* Home Page */
+#battype, #batcost, #tipmade, #tiponly, #date, #time {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  color: gray;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+/* Weekly Timesheets page */
+#fromdate, #todate {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  color: gray;
+  border-radius: 5px;
+  padding: 10px;
+
+}

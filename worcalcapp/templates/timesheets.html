@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>WorCalc</title>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'resources/worcalclogo2.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'resources/worcalclogo2.png' %}">
+  <link rel="icon" sizes="192x192" href="{% static 'resources/worcalclogo2.png' %}">
+</head>
+<body>
+
+  <div id="container">
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav">
+      <div id="menu-links">
+        <a href={% url 'index' %}>Home</a>
+                <a href={% url 'timesheets' %}>Timesheets</a> 
+      </div>
+    </nav>
+
+    <!-- Use the header area for the website name or logo -->
+    <header id="ffc-logo">
+      <a href={% url 'index' %}><img src="{% static 'resources/worcalclogo2.png' %}" alt="WorCalc logo" height="200" width="250"></a>
+    </header>
+
+    <!-- Use the main area to add the main content of the webpage -->
+    <main>
+      <div class="divcard">
+        <h2>Past Weekly Timesheets</h2>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="date" name="fromdate" id="fromdate" placeholder="From" required>
+          <input type="date" name="todate" id="todate" placeholder="To" required>
+          <input type="submit" name="submitbutton" id="submitbutton" value="Get Timesheet">
+        </form>
+      </div>
+    </main>
+
+    <!-- Use the footer area to add webpage footer content -->
+    <footer>
+      <p>&copy; WorCalc Copyright 2023. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

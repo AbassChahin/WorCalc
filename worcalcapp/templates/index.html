@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WorCalc</title>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'resources/worcalclogo2.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'resources/worcalclogo2.png' %}">
+  <link rel="icon" sizes="192x192" href="{% static 'resources/worcalclogo2.png' %}">
+</head>
+<body>
+  <div id="container">
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav">
+      <div id="menu-links">
+        <a href={% url 'index' %}>Home</a>
+                <a href={% url 'timesheets' %}>Timesheets</a> 
+      </div>
+    </nav>
+
+    <!-- Use the header area for the website name or logo -->
+    <header id="ffc-logo">
+      <a href={% url 'index' %}><img src="{% static 'resources/worcalclogo2.png' %}" alt="WorCalc logo" height="200" width="250"></a>
+    </header>
+
+    <!-- Use the main area to add the main content of the webpage -->
+    <main>
+      <h1>Welcome, {{ User }}!</h1>
+      <div class="divcard">
+        <h2>Weekly Summary</h2>
+        <h2>({{ FromDate }} - {{ ToDate }})</h2>
+        <h3>Current Hours Worked: {{ HoursWorked }}</h3>
+        <h3>Batteries Sold: {{ BatSold }}</h3>
+        <h3>Tips Made: ${{ TipsMade }}</h3>
+        <h3>Current Pay: ${{ CurrPay }}</h3>	
+      </div>
+
+      <div class="divcard">
+        <h2>Log Battery Sale</h2>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="text" name="battype" id="battype" placeholder="Battery Type" required>
+          <input type="number" name="batcost" id="batcost" placeholder="Battery Cost" required>
+          <input type="number" name="tipmade" id="tipmade" placeholder="Tips Made" required>
+          <input type="submit" name="submitbutton" id="submitbutton" value="Log Battery Sale">
+        </form>
+      </div>
+
+      <div class="divcard">
+        <h2>Log Tips Only</h2>
+        <form method="POST">
+          {% csrf_token %}
+          <input type="number" name="tiponly" id="tiponly" placeholder="Tips Made" required>
+          <input type="submit" name="submitbutton" id="submitbutton" value="Log Tips">
+        </form>
+      </div>
+
+      <div class="divcard">
+        <h2>Log Out Time</h2>
+        <form method="POST">			
+          {% csrf_token %}
+          <input type="date" name="date" id="date" placeholder="Date" required>
+          <input type="text" name="time" id="time" placeholder="Time" required>
+          <input type="submit" name="submitbutton" id="submitbutton" value="Log Out Time">
+        </form>
+      </div>
+    </main>
+
+    <!-- Use the footer area to add webpage footer content -->
+    <footer>
+      <p>&copy; WorCalc Copyright 2023. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
